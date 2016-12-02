@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file alias="alarm.svg">icons/ic_alarm_48px.svg</file>
+        <file alias="alarm_add.svg">icons/ic_alarm_add_48px.svg</file>
+        <file alias="alarm_off.svg">icons/ic_alarm_off_48px.svg</file>
+        <file alias="alarm_on.svg">icons/ic_alarm_on_48px.svg</file>
+    </qresource>
+</RCC>
