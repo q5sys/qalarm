@@ -4,5 +4,6 @@
         <file alias="alarm_add.svg">icons/ic_alarm_add_48px.svg</file>
         <file alias="alarm_off.svg">icons/ic_alarm_off_48px.svg</file>
         <file alias="alarm_on.svg">icons/ic_alarm_on_48px.svg</file>
+        <file alias="alarm.mp3">sounds/alarm.mp3</file>
     </qresource>
 </RCC>

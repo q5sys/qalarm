@@ -1,7 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "ui_snooze.h"
+//#include "ui_snooze.h"
 #include <QMenu>
+#include <QtMultimedia/QMediaPlayer>
 #include <QCloseEvent>
 #include <QDebug>
 
@@ -16,7 +17,7 @@ mainWindow::mainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::mainWi
     trayIconMenu->addSeparator();
     trayIconMenu->addAction(actionQuit);
     trayIcon->setContextMenu(trayIconMenu);
-    trayIcon->setIcon(QIcon(":/alarm.svg"));
+    trayIcon->setIcon(QIcon(":/icons/alarm.svg"));
     trayIcon->setToolTip("Alarm");
     trayIcon->show();
     setClock();
@@ -47,8 +48,7 @@ void mainWindow::tripAlarm(){
     QMessageBox *alarmBox = new QMessageBox;
     alarmBox->setText(tr("ALARM"));
     alarmFile = new QMediaPlayer(this);
- //   this->alarmFilePath=QDir::tempPath()+"";
- //   alarmFile->setMedia(QUrl::fromLocalFile());
+    alarmFile->setMedia(QUrl::fromLocalFile(":/sounds/alarm.mp3"));
     alarmFile->play();
     QAbstractButton* pushButtonStop = alarmBox->addButton(tr("Stop Alarm"), QMessageBox::YesRole);
     alarmBox->addButton(tr("Snooze for 5 Minutes"), QMessageBox::NoRole);
@@ -68,8 +68,8 @@ void mainWindow::testAlarm(){
      QMessageBox *alarmTestBox = new QMessageBox;
      alarmTestBox->setText("Ba Doop A Doop");
      alarmFile = new QMediaPlayer(this);
-  //   this->alarmFilePath=QDir::tempPath()+"";
-  //   alarmFile->setMedia(QUrl::fromLocalFile());
+     alarmFile->setMedia(QUrl(":/sounds/alarm.mp3"));
+     alarmFile->play();
      alarmFile->play();
      QAbstractButton* pushButtonStop = alarmTestBox->addButton(tr("Stop Alarm"), QMessageBox::YesRole);
      alarmTestBox->addButton(tr("Snooze for 5 Minutes"), QMessageBox::NoRole);
@@ -124,7 +124,7 @@ void mainWindow::startTimer(){
 }
 
 void mainWindow::alarmCheck(){
-    QString nowDateTime = QDateTime::currentDateTime().toString("d MMMM yyyy hh:mm:ss");
+    nowDateTime = QDateTime::currentDateTime().toString("d MMMM yyyy hh:mm:ss");
     qDebug() << "nowDateTime" << nowDateTime;
     qDebug() << "userDateTime" << userDateTime;
     qDebug() << "customDateTime" << customDateTime.toString("d MMMM yyyy hh:mm:ss");
