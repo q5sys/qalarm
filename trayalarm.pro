@@ -1,8 +1,9 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2016-12-01T13:40:16
-#
-#-------------------------------------------------
+//===========================================
+//  qalarm source code
+//  Copyright (c) 2017, q5sys
+//  Available under the MIT License
+//  See the LICENSE file for full details
+//===========================================
 
 QT       += core gui multimedia
 
