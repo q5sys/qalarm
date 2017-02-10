@@ -24,7 +24,7 @@ mainWindow::mainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::mainWi
     trayIconMenu->addSeparator();
     trayIconMenu->addAction(actionQuit);
     trayIcon->setContextMenu(trayIconMenu);
-    trayIcon->setIcon(QIcon(":/icons/alarm.svg"));
+    trayIcon->setIcon(QIcon(":/media/alarm.svg"));
     trayIcon->setToolTip("Alarm");
     trayIcon->show();
     setClock();
@@ -55,7 +55,8 @@ void mainWindow::tripAlarm(){
     QMessageBox *alarmBox = new QMessageBox;
     alarmBox->setText(tr("ALARM"));
     alarmFile = new QMediaPlayer(this);
-    alarmFile->setMedia(QUrl::fromLocalFile(":/sounds/alarm.mp3"));
+    alarmFile->setMedia(QUrl::fromLocalFile(":/media/alarm.mp3"));
+    alarmFile->setVolume(volume);
     alarmFile->play();
     QAbstractButton* pushButtonStop = alarmBox->addButton(tr("Stop Alarm"), QMessageBox::YesRole);
     alarmBox->addButton(tr("Snooze for 5 Minutes"), QMessageBox::NoRole);
@@ -75,8 +76,8 @@ void mainWindow::testAlarm(){
      QMessageBox *alarmTestBox = new QMessageBox;
      alarmTestBox->setText("Ba Doop A Doop");
      alarmFile = new QMediaPlayer(this);
-     alarmFile->setMedia(QUrl(":/sounds/alarm.mp3"));
-     alarmFile->play();
+     alarmFile->setMedia(QUrl(":/media/alarm.mp3"));
+     alarmFile->setVolume(volume);
      alarmFile->play();
      QAbstractButton* pushButtonStop = alarmTestBox->addButton(tr("Stop Alarm"), QMessageBox::YesRole);
      alarmTestBox->addButton(tr("Snooze for 5 Minutes"), QMessageBox::NoRole);
